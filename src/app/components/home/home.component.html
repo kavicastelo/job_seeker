@@ -1,0 +1,51 @@
+<div class="main-div d-flex align-items-center justify-content-center">
+  <div class="appointment-div">
+    <form [formGroup]="donationForm" (ngSubmit)="submit()">
+      <div *ngIf="donationForm.get('country')?.invalid && donationForm.get('country')?.touched" class="error-message">
+        Country is required
+      </div>
+      <select class="example-full-width field" formControlName="country" (change)="onCountryChange()">
+        <option value="" disabled selected>Select Country &ast;</option>
+        <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+      </select>
+
+      <div *ngIf="donationForm.get('jobCategory')?.invalid && donationForm.get('jobCategory')?.touched" class="error-message">
+        Job-category is required
+      </div>
+      <select class="example-full-width field" formControlName="jobCategory" (change)="onJobCategoryChange()">
+        <option value="" disabled selected>Select Job-Category *</option>
+        <option *ngFor="let jobCategory of uniqueJobCategories" [value]="jobCategory">{{ jobCategory }}</option>
+      </select>
+
+      <div *ngIf="donationForm.get('consultant')?.invalid && donationForm.get('consultant')?.touched"
+           class="error-message">
+        consultant Name is required
+      </div>
+      <select class="example-full-width field" formControlName="consultant" (change)="onConsultantChange()">
+        <option value="" disabled selected>Select Consultant *</option>
+        <option *ngFor="let consultant of filteredConsultants" [value]="consultant.name">{{ consultant.name }}</option>
+      </select>
+
+      <div *ngIf="donationForm.get('jobRole')?.invalid && donationForm.get('jobRole')?.touched" class="error-message">
+        Job-role is required
+      </div>
+      <select class="example-full-width field" formControlName="jobRole">
+        <option value="" disabled selected>Select Job-role *</option>
+        <option *ngFor="let job of filteredJobRoles" [value]="job.job">{{ job.job }}</option>
+      </select>
+
+      <div *ngIf="donationForm.get('Name')?.invalid && donationForm.get('Name')?.touched" class="error-message">
+        Your Name is required
+      </div>
+      <input class="example-full-width field" type="text" formControlName="Name" placeholder="Type your name &ast;">
+
+      <div *ngIf="donationForm.get('email')?.invalid && donationForm.get('email')?.touched" class="error-message">
+        Email is required and should be a valid email
+      </div>
+      <input class="example-full-width field" type="email" formControlName="email" placeholder="Type your email &ast;">
+
+      <button class="example-full-width button-3" type="submit" [disabled]="donationForm.invalid">Submit</button>
+    </form>
+  </div>
+</div>
+

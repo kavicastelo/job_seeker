@@ -1,0 +1,48 @@
+.main-div {
+  min-height: 88vh;
+  width: 100%;
+  background-image: url("../../../assets/images/offer 1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .appointment-div {
+    width: 35%;
+    min-width: 350px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 25px 50px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+
+
+    .error-message {
+      color: red;
+      font-size: 11px;
+    }
+
+    .example-full-width {
+      width: 100%;
+    }
+
+    .field {
+      border: 0;
+      border-radius: 0;
+      outline: none;
+      border-bottom: 2px solid black;
+      color: #888;
+      margin-bottom: 15px;
+      padding-left: 15px;
+    }
+
+    .field:focus {
+      border-bottom: 2px solid dodgerblue;
+    }
+
+    .field:invalid{
+      border-bottom: 2px solid red;
+      color: red;
+    }
+
+  }
+}
+
