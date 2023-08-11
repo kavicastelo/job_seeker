@@ -15,11 +15,18 @@ import {MatInputModule} from "@angular/material/input";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatSelectCountryModule} from "@angular-material-extensions/select-country";
 import {HttpClientModule} from "@angular/common/http";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {DatePipe} from "@angular/common";
+import { RequestConsultantProfessionComponent } from './components/request-consultant-profession/request-consultant-profession.component';
+import { BecomeConsultantComponent } from './components/become-consultant/become-consultant.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    RequestConsultantProfessionComponent,
+    BecomeConsultantComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +41,13 @@ import {HttpClientModule} from "@angular/common/http";
     MatInputModule,
     MatExpansionModule,
     HttpClientModule,
-    MatSelectCountryModule.forRoot('en')
+    MatSelectCountryModule.forRoot('en'),
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [
+    DatePipe,
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

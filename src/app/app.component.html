@@ -1,14 +1,14 @@
 <div class="heading">
   <div>
     <button class="button-1" (click)="drawer.toggle()"><mat-icon>reorder</mat-icon></button>
-    <img src="./assets/images/logo.png" alt="logo">
+    <img src="./assets/images/logo.png" alt="logo" routerLink="/home">
   </div>
   <div class="d-flex">
-    <button class="button-2">Become Consultant</button>
+    <button class="button-2" routerLink="/become-a-consultant">Become a Consultant</button>
     <div class="d-none d-sm-block" style="margin-left: 15px">
       <div class="d-flex flex-column">
-        <span>Hotline: +94773431660</span>
-        <span>Email: sample@gmail.com</span>
+        <span><a href="tel:+94773431660">Hotline: +94 77 343 1660</a></span>
+        <span><a href="mailto:sample@gmail.com">Email: sample@gmail.com</a></span>
       </div>
     </div>
   </div>

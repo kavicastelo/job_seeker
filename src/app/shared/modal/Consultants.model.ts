@@ -6,5 +6,6 @@ export interface ConsultantsModel {
   email: string;
   phone: string;
   address: string;
+  unavailableDates: any;
   verified: boolean;
 }

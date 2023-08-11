@@ -45,7 +45,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin: 0;
 }
 //buttons
-.button-1, .button-2, .button-3{
+.button-1, .button-2, .button-3, .button-4{
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -67,8 +67,34 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: dodgerblue;
   color: white;
 }
-.button-3:hover{
+.button-3:hover, .button-4:hover{
   background-color: black;
   color: white;
   cursor: pointer;;
+}
+
+.button-4{
+  background-color: #888888;
+  color: white;
+}
+
+//paragraph
+.p-1{
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+}
+
+//title
+.title-1{
+  font-family: 'Oswald', sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+//sub-title
+.subtitle-1{
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  font-weight: 550;
+  color: darkmagenta;
 }

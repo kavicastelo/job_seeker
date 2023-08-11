@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="title-1">Consultant Application</div>
+  <div class="p-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci alias aliquid asperiores
+    aspernatur aut consequatur cum cumque deleniti, eligendi eos error expedita explicabo in iste maiores minus
+    molestias nemo nesciunt nisi nulla odio odit omnis praesentium quas quibusdam, quo recusandae rem reprehenderit
+    repudiandae saepe soluta velit veniam vero voluptatum.
+  </div>
+  <form class="contact-form" [formGroup]="contactForm">
+
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <mat-form-field class="contact-form-full-width" appearance="outline" color="accent">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="Ex. kavindu kokila">
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6">
+        <mat-form-field class="contact-form-full-width" appearance="outline" color="accent">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6">
+        <mat-form-field class="contact-form-full-width" appearance="outline" color="accent">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone" placeholder="Ex. +94773431660">
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6">
+        <mat-form-field class="contact-form-full-width" appearance="outline" color="accent">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address" placeholder="Ex. Address" autocomplete="on">
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6">
+        <mat-form-field class="contact-form-full-width" appearance="outline" color="accent">
+          <mat-label>Country</mat-label>
+          <mat-select class="example-full-width field" formControlName="country">
+            <mat-option value="" disabled selected>Select Country &ast;</mat-option>
+            <mat-option *ngFor="let country of countries" [value]="country.name">{{country.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6">
+        <mat-form-field class="contact-form-full-width" appearance="outline" color="accent">
+          <mat-label>Job Category</mat-label>
+          <mat-select class="example-full-width field" formControlName="jobCategory">
+            <mat-option value="" disabled selected>Select Job-Category *</mat-option>
+            <mat-option *ngFor="let jobCategory of uniqueJobCategories"
+                        [value]="jobCategory">{{ jobCategory }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6">
+        <mat-form-field class="contact-form-full-width" appearance="outline" color="accent">
+          <mat-label>Job Roles</mat-label>
+          <mat-select class="example-full-width field" formControlName="jobRoles" multiple>
+            <mat-option value="" disabled selected>Select Job-Roles *</mat-option>
+            <mat-option *ngFor="let roles of filteredJobRoles" [value]="roles.job">{{roles.job}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6">
+        <mat-form-field class="contact-form-full-width" appearance="outline" color="accent">
+          <mat-label>Portfolio</mat-label>
+          <input matInput formControlName="portfolio" placeholder="Ex. www.portfolio.com">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <button type="reset" class="button-4">Cancel</button>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <button class="button-3">Apply Consult Job</button>
+      </div>
+    </div>
+
+  </form>
+</div>

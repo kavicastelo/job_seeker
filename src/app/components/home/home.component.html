@@ -1,7 +1,7 @@
 <div class="main-div d-flex align-items-center justify-content-center">
   <div class="appointment-div">
-    <form [formGroup]="donationForm" (ngSubmit)="submit()">
-      <div *ngIf="donationForm.get('country')?.invalid && donationForm.get('country')?.touched" class="error-message">
+    <form [formGroup]="appointmentForm" (ngSubmit)="submit()">
+      <div *ngIf="appointmentForm.get('country')?.invalid && appointmentForm.get('country')?.touched" class="error-message">
         Country is required
       </div>
       <select class="example-full-width field" formControlName="country" (change)="onCountryChange()">
@@ -9,7 +9,8 @@
         <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
       </select>
 
-      <div *ngIf="donationForm.get('jobCategory')?.invalid && donationForm.get('jobCategory')?.touched" class="error-message">
+      <div *ngIf="appointmentForm.get('jobCategory')?.invalid && appointmentForm.get('jobCategory')?.touched"
+           class="error-message">
         Job-category is required
       </div>
       <select class="example-full-width field" formControlName="jobCategory" (change)="onJobCategoryChange()">
@@ -17,16 +18,16 @@
         <option *ngFor="let jobCategory of uniqueJobCategories" [value]="jobCategory">{{ jobCategory }}</option>
       </select>
 
-      <div *ngIf="donationForm.get('consultant')?.invalid && donationForm.get('consultant')?.touched"
+      <div *ngIf="appointmentForm.get('consultant')?.invalid && appointmentForm.get('consultant')?.touched"
            class="error-message">
         consultant Name is required
       </div>
-      <select class="example-full-width field" formControlName="consultant" (change)="onConsultantChange()">
+      <select class="example-full-width field" formControlName="consultant" (change)="onConsultantChange();">
         <option value="" disabled selected>Select Consultant *</option>
         <option *ngFor="let consultant of filteredConsultants" [value]="consultant.name">{{ consultant.name }}</option>
       </select>
 
-      <div *ngIf="donationForm.get('jobRole')?.invalid && donationForm.get('jobRole')?.touched" class="error-message">
+      <div *ngIf="appointmentForm.get('jobRole')?.invalid && appointmentForm.get('jobRole')?.touched" class="error-message">
         Job-role is required
       </div>
       <select class="example-full-width field" formControlName="jobRole">
@@ -34,17 +35,27 @@
         <option *ngFor="let job of filteredJobRoles" [value]="job.job">{{ job.job }}</option>
       </select>
 
-      <div *ngIf="donationForm.get('Name')?.invalid && donationForm.get('Name')?.touched" class="error-message">
+      <div *ngIf="appointmentForm.get('Name')?.invalid && appointmentForm.get('Name')?.touched" class="error-message">
         Your Name is required
       </div>
       <input class="example-full-width field" type="text" formControlName="Name" placeholder="Type your name &ast;">
 
-      <div *ngIf="donationForm.get('email')?.invalid && donationForm.get('email')?.touched" class="error-message">
+      <div *ngIf="appointmentForm.get('email')?.invalid && appointmentForm.get('email')?.touched" class="error-message">
         Email is required and should be a valid email
       </div>
       <input class="example-full-width field" type="email" formControlName="email" placeholder="Type your email &ast;">
 
-      <button class="example-full-width button-3" type="submit" [disabled]="donationForm.invalid">Submit</button>
+      <div *ngIf="appointmentForm.get('date')?.invalid && appointmentForm.get('date')?.touched" class="error-message">
+        Email is required and should be a valid email
+      </div>
+      <div class="example-full-width">
+        <input matInput (click)="openDatePicker()" [matDatepicker]="$any(picker)" placeholder="Select a date &ast;"
+               [min]="minDate" [max]="maxDate" [matDatepickerFilter]="unavailableDatesFilter" class="field example-full-width" formControlName="selectedDate">
+        <mat-datepicker-toggle matSuffix [for]="picker" style="display: none"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </div>
+
+      <button class="example-full-width button-3" type="submit" [disabled]="appointmentForm.invalid">Make an Appointment</button>
     </form>
   </div>
 </div>

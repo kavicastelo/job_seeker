@@ -11,6 +11,7 @@
     width: 70px;
     height: 70px;
     margin-left: 15px;
+    cursor: pointer;
   }
 
   .button-1{
@@ -18,8 +19,11 @@
       color: white;
     }
   }
-  span{
+  span > a{
     color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 13px;
   }
 }
 
@@ -46,7 +50,7 @@
     }
     span{
       font-size: 12px;
-      margin-left: 20px
+      margin-left: 20px;
     }
   }
 
