@@ -45,19 +45,18 @@ export class HomeComponent {
     const selectedConsultant = this.donationForm.get('consultant')?.value;
 
     const selectedConsultantRoles = this.consultants.find((consultant: any) => consultant.name === selectedConsultant)?.jobRole || [];
-    console.log('Selected Consultant Roles:', selectedConsultantRoles);
 
     const filteredRoles = this.jobs.filter((job: any) => {
       return job.cat === selectedCategory && selectedConsultantRoles.includes(job.job);
     });
-
-    console.log('Filtered Job Roles:', filteredRoles);
     return filteredRoles;
   }
 
   get filteredConsultants() {
     const selectedCountry = this.donationForm.get('country')?.value;
-    return this.consultants.filter((consultant: any) => consultant.country === selectedCountry);
+    const selectedCategory = this.donationForm.get('jobCategory')?.value;
+
+    return this.consultants.filter((consultant: any) => consultant.country === selectedCountry && consultant.jobCategory === selectedCategory);
   }
 
   onCountryChange() {
