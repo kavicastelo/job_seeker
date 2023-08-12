@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 import {ConsultantsModel} from "../shared/modal/Consultants.model";
+import {AddConsultant} from "../shared/modal/Consultants.model";
 
 @Injectable({
   providedIn: 'root'
@@ -31,4 +32,24 @@ export class ConsultantService {
   public getAllConsultants(): Observable<any> {
     return this.http.get(this.baseUrl + "getAllConsultants");
   }
+
+  public createConsultant(c: AddConsultant): Observable<any> {
+    return this.http.post(this.baseUrl + "addConsultant", {
+      email: c.email,
+      password: c.password
+    });
+  }
+
+  public getConsultantByEmail(email: any): Observable<any> {
+    return this.http.get(this.baseUrl + "getConsultantByEmail/" + email);
+  }
+
+  public updateConsultant(email: any, updatedConsultant: any): Observable<any> {
+    return this.http.put(this.baseUrl + "updateConsultantByEmail/" + email, updatedConsultant);
+  }
+
+  public deleteConsultantByEmail(email: any): Observable<any> {
+    return this.http.delete(this.baseUrl + "deleteConsultantByEmail/" + email);
+  }
+
 }

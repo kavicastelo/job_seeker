@@ -55,7 +55,6 @@ export class RequestConsultantProfessionComponent {
   }
 
   submit() {
-    console.log(this.contactForm.get('jobRoles')?.value);
     this.consultantService.reqConsultant({
       country:this.contactForm.get('country')?.value,
       jobCategory:this.contactForm.get('jobCategory')?.value,
@@ -71,6 +70,7 @@ export class RequestConsultantProfessionComponent {
       this.contactForm.reset();
       this.openSnackBar('Requested Interview!','OK');
     }, (err:any) => {
+      console.log(err)
       this.openSnackBar('Something went wrong! try again later!','OK');
     })
   }

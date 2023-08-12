@@ -20,7 +20,7 @@ export class ReceptionInterviewReqComponent implements OnInit{
 
   loadInterviewReqs() {
     this.consultantService.getAllConsultants().subscribe((data: any) => {
-      this.consultants = data;
+      this.consultants = data.filter((consultant:any) => consultant.verified===false);
     })
   }
 

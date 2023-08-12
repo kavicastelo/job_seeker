@@ -10,3 +10,8 @@ export interface ConsultantsModel {
   portfolio:any;
   verified: any;
 }
+
+export interface AddConsultant {
+  email: any;
+  password: any;
+}
