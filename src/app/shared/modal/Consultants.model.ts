@@ -1,12 +1,12 @@
 export interface ConsultantsModel {
-  country: string;
-  jobCategory: string;
-  jobRole: object;
-  name: string;
-  email: string;
-  phone: string;
-  address: string;
+  country: any;
+  jobCategory: any;
+  jobRole: any;
+  name: any;
+  email: any;
+  phone: any;
+  address: any;
   unavailableDates: any;
-  portfolio:string;
-  verified: boolean;
+  portfolio:any;
+  verified: any;
 }

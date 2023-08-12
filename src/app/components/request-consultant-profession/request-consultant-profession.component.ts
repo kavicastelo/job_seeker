@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {countries} from "../../shared/components/store/country-data-store";
 import {jobs} from "../../shared/components/store/job-roles-data-store";
+import {ConsultantService} from "../../services/consultant.service"
+import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-request-consultant-profession',
@@ -39,6 +42,9 @@ export class RequestConsultantProfessionComponent {
     portfolio: new FormControl(null)
   })
 
+  constructor(private consultantService: ConsultantService, private router: Router, private snackBar: MatSnackBar) {
+  }
+
   get uniqueJobCategories() {
     return [...new Set(this.jobs.map((job: any) => job.cat))];
   }
@@ -50,6 +56,27 @@ export class RequestConsultantProfessionComponent {
 
   submit() {
     console.log(this.contactForm.get('jobRoles')?.value);
+    this.consultantService.reqConsultant({
+      country:this.contactForm.get('country')?.value,
+      jobCategory:this.contactForm.get('jobCategory')?.value,
+      jobRole:this.contactForm.get('jobRoles')?.value,
+      name:this.contactForm.get('name')?.value,
+      email:this.contactForm.get('email')?.value,
+      phone:this.contactForm.get('phone')?.value,
+      address:this.contactForm.get('address')?.value,
+      unavailableDates:[],
+      portfolio:this.contactForm.get('portfolio')?.value,
+      verified:false}
+    ).subscribe((res:any) => {
+      this.contactForm.reset();
+      this.openSnackBar('Requested Interview!','OK');
+    }, (err:any) => {
+      this.openSnackBar('Something went wrong! try again later!','OK');
+    })
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action,{duration:2000});
   }
 
 }

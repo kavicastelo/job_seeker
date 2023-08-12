@@ -25,6 +25,7 @@ import { ReceptionInterviewReqComponent } from './components/reception/reception
 import { ReceptionAddConsultantsComponent } from './components/reception/reception-add-consultants/reception-add-consultants.component';
 import { ReceptionConsultantListComponent } from './components/reception/reception-consultant-list/reception-consultant-list.component';
 import { ReceptionJobSeekerReqComponent } from './components/reception/reception-job-seeker-req/reception-job-seeker-req.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ReceptionJobSeekerReqComponent } from './components/reception/reception
     HttpClientModule,
     MatSelectCountryModule.forRoot('en'),
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSnackBarModule
   ],
   providers: [
     DatePipe,
