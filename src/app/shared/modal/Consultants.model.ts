@@ -7,5 +7,6 @@ export interface ConsultantsModel {
   phone: string;
   address: string;
   unavailableDates: any;
+  portfolio:string;
   verified: boolean;
 }

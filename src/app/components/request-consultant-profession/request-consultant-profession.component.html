@@ -5,7 +5,7 @@
     molestias nemo nesciunt nisi nulla odio odit omnis praesentium quas quibusdam, quo recusandae rem reprehenderit
     repudiandae saepe soluta velit veniam vero voluptatum.
   </div>
-  <form class="contact-form" [formGroup]="contactForm">
+  <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="submit()">
 
     <div class="row">
       <div class="col-12 col-md-6">

@@ -20,13 +20,23 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {DatePipe} from "@angular/common";
 import { RequestConsultantProfessionComponent } from './components/request-consultant-profession/request-consultant-profession.component';
 import { BecomeConsultantComponent } from './components/become-consultant/become-consultant.component';
+import { ReceptionComponent } from './components/reception/reception.component';
+import { ReceptionInterviewReqComponent } from './components/reception/reception-interview-req/reception-interview-req.component';
+import { ReceptionAddConsultantsComponent } from './components/reception/reception-add-consultants/reception-add-consultants.component';
+import { ReceptionConsultantListComponent } from './components/reception/reception-consultant-list/reception-consultant-list.component';
+import { ReceptionJobSeekerReqComponent } from './components/reception/reception-job-seeker-req/reception-job-seeker-req.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RequestConsultantProfessionComponent,
-    BecomeConsultantComponent
+    BecomeConsultantComponent,
+    ReceptionComponent,
+    ReceptionInterviewReqComponent,
+    ReceptionAddConsultantsComponent,
+    ReceptionConsultantListComponent,
+    ReceptionJobSeekerReqComponent
   ],
   imports: [
     BrowserModule,

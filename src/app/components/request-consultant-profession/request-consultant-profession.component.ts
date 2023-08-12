@@ -48,4 +48,8 @@ export class RequestConsultantProfessionComponent {
     return this.jobs.filter((job:any) => job.cat === selectedCategory);
   }
 
+  submit() {
+    console.log(this.contactForm.get('jobRoles')?.value);
+  }
+
 }

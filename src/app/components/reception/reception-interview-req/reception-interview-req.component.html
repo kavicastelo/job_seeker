@@ -1,0 +1,26 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Country</th>
+    <th>Job Category</th>
+    <th>Job Roles</th>
+    <th>Portfolio</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let c of consultants">
+    <td>{{c.name}}</td>
+    <td title="Send an email"><a href="mailto:{{c.email}}">{{c.email}}</a></td>
+    <td title="Give a call"><a href="tel:{{c.phone}}">{{c.phone}}</a></td>
+    <td>{{c.address}}</td>
+    <td>{{c.country}}</td>
+    <td>{{c.jobCategory}}</td>
+    <td>{{c.jobRole}}</td>
+    <td>{{c.portfolio}}</td>
+  </tr>
+  </tbody>
+</table>
