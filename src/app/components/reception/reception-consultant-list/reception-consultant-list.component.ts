@@ -28,6 +28,18 @@ export class ReceptionConsultantListComponent implements OnInit{
     })
   }
 
+  deleteUser(email: any) {
+    if(confirm("Are you sure?")){
+      this.consultantService.deleteConsultantByEmail(email).subscribe(response=>{
+        this.openSnackBar('Customer Deleted!','OK');
+        this.loadConsultants();
+      },error=>{
+        this.openSnackBar('Somethings Wrong! try again','OK');
+        console.log(error);
+      })
+    }
+  }
+
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action,{duration:2000});
   }

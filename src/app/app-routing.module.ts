@@ -16,6 +16,9 @@ import {
 import {
   ReceptionJobSeekerReqComponent
 } from "./components/reception/reception-job-seeker-req/reception-job-seeker-req.component";
+import {LoginConsultantComponent} from "./components/login-consultant/login-consultant.component";
+import {DashboardComponent} from "./components/dashboard/dashboard.component";
+import {AuthGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -29,6 +32,8 @@ const routes: Routes = [
       {path: 'consultant-list', component: ReceptionConsultantListComponent},
       {path: 'requests', component: ReceptionJobSeekerReqComponent},
     ]},
+  {path: 'login', component: LoginConsultantComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

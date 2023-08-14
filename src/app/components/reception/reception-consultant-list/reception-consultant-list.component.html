@@ -14,7 +14,7 @@
     <td title="Send an email"><a href="mailto:{{c.email}}">{{c.email}}</a></td>
     <td title="Give a call"><a href="tel:{{c.phone}}">{{c.phone}}</a></td>
     <td>{{c.address}}</td>
-    <td><button>Ban</button></td>
+    <td><button class="button-3" (click)="deleteUser(c.email.trim())"><mat-icon>remove</mat-icon></button></td>
   </tr>
   </tbody>
 </table>

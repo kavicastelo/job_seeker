@@ -26,6 +26,9 @@ import { ReceptionAddConsultantsComponent } from './components/reception/recepti
 import { ReceptionConsultantListComponent } from './components/reception/reception-consultant-list/reception-consultant-list.component';
 import { ReceptionJobSeekerReqComponent } from './components/reception/reception-job-seeker-req/reception-job-seeker-req.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { LoginConsultantComponent } from './components/login-consultant/login-consultant.component';
+import { LoginReceptionComponent } from './components/login-reception/login-reception.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     ReceptionInterviewReqComponent,
     ReceptionAddConsultantsComponent,
     ReceptionConsultantListComponent,
-    ReceptionJobSeekerReqComponent
+    ReceptionJobSeekerReqComponent,
+    LoginConsultantComponent,
+    LoginReceptionComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
