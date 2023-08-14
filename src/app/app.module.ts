@@ -29,6 +29,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { LoginConsultantComponent } from './components/login-consultant/login-consultant.component';
 import { LoginReceptionComponent } from './components/login-reception/login-reception.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AppointmentsComponent } from './components/dashboard/appointments/appointments.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ReceptionJobSeekerReqComponent,
     LoginConsultantComponent,
     LoginReceptionComponent,
-    DashboardComponent
+    DashboardComponent,
+    AppointmentsComponent
   ],
   imports: [
     BrowserModule,

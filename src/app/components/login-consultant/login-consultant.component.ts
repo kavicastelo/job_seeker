@@ -42,6 +42,7 @@ export class LoginConsultantComponent {
         if (response.email === this.loginForm.get('email')?.value){
           if (response.password === this.loginForm.get('password')?.value){
             this.loading = false;
+            this.cookieService.createUser(response.email);
             this.route.navigateByUrl('/dashboard');
           }
           else{

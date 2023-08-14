@@ -52,4 +52,8 @@ export class ConsultantService {
     return this.http.delete(this.baseUrl + "deleteConsultantByEmail/" + email);
   }
 
+  public getConsultant(email: any): Observable<any> {
+    return this.http.get(this.baseUrl + "getConsultant/" + email);
+  }
+
 }

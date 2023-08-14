@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
-import { Observable } from 'rxjs';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from "@angular/router";
 import {AuthService} from "../services/auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
-
+export class ReceptionGuard implements CanActivate {
   constructor(private cookieService:AuthService,
               private route:Router) {
   }
@@ -19,9 +17,8 @@ export class AuthGuard implements CanActivate {
       return true;
     }
     else{
-      this.route.navigateByUrl('/login');
+      this.route.navigateByUrl('/reception-login');
       return false;
     }
   }
 }
-

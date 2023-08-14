@@ -19,13 +19,16 @@ import {
 import {LoginConsultantComponent} from "./components/login-consultant/login-consultant.component";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {AuthGuard} from "./guards/auth.guard";
+import {LoginReceptionComponent} from "./components/login-reception/login-reception.component";
+import {ReceptionGuard} from "./guards/reception.guard";
+import {AppointmentsComponent} from "./components/dashboard/appointments/appointments.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'become-a-consultant-application', component: RequestConsultantProfessionComponent},
   {path: 'become-a-consultant', component: BecomeConsultantComponent},
-  {path: 'reception', component: ReceptionComponent, children:[
+  {path: 'reception', component: ReceptionComponent, canActivate:[ReceptionGuard], children:[
       {path: '', redirectTo: '/reception/interview', pathMatch: 'full'},
       {path: 'interview', component: ReceptionInterviewReqComponent},
       {path: 'add-new', component: ReceptionAddConsultantsComponent},
@@ -33,7 +36,11 @@ const routes: Routes = [
       {path: 'requests', component: ReceptionJobSeekerReqComponent},
     ]},
   {path: 'login', component: LoginConsultantComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'reception-login', component: LoginReceptionComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], children:[
+      {path: '', redirectTo: '/dashboard/appointments', pathMatch: 'full'},
+      {path: 'appointments', component: AppointmentsComponent},
+    ]},
 ];
 
 @NgModule({
