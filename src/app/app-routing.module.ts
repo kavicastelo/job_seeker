@@ -22,6 +22,7 @@ import {AuthGuard} from "./guards/auth.guard";
 import {LoginReceptionComponent} from "./components/login-reception/login-reception.component";
 import {ReceptionGuard} from "./guards/reception.guard";
 import {AppointmentsComponent} from "./components/dashboard/appointments/appointments.component";
+import {UnavailableDatesComponent} from "./components/dashboard/unavailable-dates/unavailable-dates.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], children:[
       {path: '', redirectTo: '/dashboard/appointments', pathMatch: 'full'},
       {path: 'appointments', component: AppointmentsComponent},
+      {path: 'unavailable-dates', component: UnavailableDatesComponent},
     ]},
 ];
 

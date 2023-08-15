@@ -10,7 +10,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatSelectCountryModule} from "@angular-material-extensions/select-country";
@@ -30,6 +30,9 @@ import { LoginConsultantComponent } from './components/login-consultant/login-co
 import { LoginReceptionComponent } from './components/login-reception/login-reception.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AppointmentsComponent } from './components/dashboard/appointments/appointments.component';
+import { UnavailableDatesComponent } from './components/dashboard/unavailable-dates/unavailable-dates.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatMomentDateModule} from "@angular/material-moment-adapter";
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import { AppointmentsComponent } from './components/dashboard/appointments/appoi
     LoginConsultantComponent,
     LoginReceptionComponent,
     DashboardComponent,
-    AppointmentsComponent
+    AppointmentsComponent,
+    UnavailableDatesComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,10 @@ import { AppointmentsComponent } from './components/dashboard/appointments/appoi
     MatSelectCountryModule.forRoot('en'),
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule,
+    FormsModule,
+    MatMomentDateModule
   ],
   providers: [
     DatePipe,

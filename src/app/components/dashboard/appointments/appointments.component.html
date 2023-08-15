@@ -6,6 +6,7 @@
     <th>Job Role</th>
     <th>Email</th>
     <th>Appointment Date</th>
+    <th>Approval</th>
   </tr>
   </thead>
   <tbody>
@@ -15,6 +16,7 @@
     <td>{{a.jobRole}}</td>
     <td title="Send an email"><a href="mailto:{{a.email}}">{{a.email}}</a></td>
     <td>{{a.date.split('T',1)}}</td>
+    <td><button>approve</button></td>
   </tr>
   </tbody>
 </table>

@@ -56,4 +56,8 @@ export class ConsultantService {
     return this.http.get(this.baseUrl + "getConsultant/" + email);
   }
 
+  public setUnavailableDates(email: any, unavailableDates: any, options?: any): Observable<any> {
+    return this.http.put(this.baseUrl + "setUnavailableDates/" + email, unavailableDates, options);
+  }
+
 }

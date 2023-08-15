@@ -1,0 +1,15 @@
+.top-bar > .row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 1px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 10px;
+
+  .button-3{
+    margin: 10px 0;
+    padding: 5px;
+    width: 100%;
+  }
+}
