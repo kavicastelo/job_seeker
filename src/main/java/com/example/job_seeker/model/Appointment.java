@@ -14,11 +14,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 public class Appointment {
     @Id
-    private int id;
-    private int jobSeekerId;
-    private String seekerName;
-    private int consultantId;
-    private String consultantName;
-    private String scheduledDate;
-    private boolean accepted;
+    private String id;
+    private String country;
+    private String category;
+    private String consultant;
+    private String jobRole;
+    private String name;
+    private String email;
+    private String date;
+    private boolean approved;
 }

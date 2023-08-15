@@ -1,7 +1,10 @@
 package com.example.job_seeker.resource;
 
 import com.example.job_seeker.DTO.ApiResponse;
+import com.example.job_seeker.DTO.UnavailableDatesDTO;
 import com.example.job_seeker.model.Consultant;
+import com.example.job_seeker.service.ConsultantService;
+import com.mongodb.client.result.UpdateResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +12,10 @@ import com.example.job_seeker.repository.ConsultantRepository;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 
 @RestController
 public class ConsultantController {
@@ -78,4 +85,18 @@ public class ConsultantController {
         }
     }
 
+    @PutMapping("/api/v1/setUnavailableDates/{email}")
+    public ResponseEntity<ApiResponse> updateUnavailableDates(@PathVariable String email, @RequestBody UnavailableDatesDTO dto) {
+        Query query = new Query(Criteria.where("email").is(email));
+        Update update = new Update().set("unavailableDates", dto.getUnavailableDates());
+
+        UpdateResult result = ConsultantService.mongoTemplate.updateFirst(query, update, Consultant.class);
+
+        if (result.getModifiedCount() > 0) {
+            ApiResponse response = new ApiResponse("Unavailable dates updated successfully");
+            return ResponseEntity.ok(response);
+        } else {
+            return ResponseEntity.ok(null);
+        }
+    }
 }

@@ -1,8 +1,10 @@
 package com.example.job_seeker.resource;
 
+import com.example.job_seeker.DTO.ApiResponse;
 import com.example.job_seeker.model.Appointment;
 import com.example.job_seeker.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,9 +16,11 @@ public class AppointmentController {
     AppointmentRepository appointmentRepository;
 
     @PostMapping("/api/v1/saveAppointment")
-    public String saveAppointment(@RequestBody Appointment appointment) {
+    public ResponseEntity<ApiResponse> saveAppointment(@RequestBody Appointment appointment) {
         appointmentRepository.save(appointment);
-        return "Saved "+appointment.getId()+"successfully";
+
+        ApiResponse response = new ApiResponse("Saved "+appointment.getId()+" successfully");
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/api/v1/getAllAppointments")
