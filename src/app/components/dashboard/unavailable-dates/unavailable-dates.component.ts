@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import {
@@ -26,14 +26,14 @@ import * as moment from 'moment';
     { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
   ],
 })
-export class UnavailableDatesComponent {
+export class UnavailableDatesComponent implements OnInit{
 
-  // selectedDates: moment.Moment[] = [];
   selectedDates: Moment[] = [];
 
   public minDate: Date;
   public maxDate: Date;
   unavailableDates: string[] = [];
+  selectedConsultant: any;
 
   constructor(
     private dateAdapter: DateAdapter<moment.Moment>,
@@ -43,6 +43,17 @@ export class UnavailableDatesComponent {
   ) {
     this.minDate = new Date(); // Today's date
     this.maxDate = this.calculateMaxDate();
+  }
+
+  ngOnInit() {
+    this.loadConsultant();
+  }
+
+  loadConsultant() {
+    this.consultantService.getConsultant(this.cookieService.userEmail()).subscribe(consultant => {
+      this.selectedConsultant = consultant;
+      this.updateUnavailableDates();
+    })
   }
 
   onDateChange(event: MatDatepickerInputEvent<Date, Date | null>) {
@@ -60,10 +71,18 @@ export class UnavailableDatesComponent {
     };
 
     this.consultantService.setUnavailableDates(email, dto).subscribe(() => {
-      console.log('Saved');
     }, error => {
       console.log(error);
     });
+    this.loadConsultant();
+  }
+
+  updateUnavailableDates() {
+    if (this.selectedConsultant) {
+      this.unavailableDates = this.selectedConsultant.unavailableDates|| [];
+    } else {
+      this.unavailableDates = [];
+    }
   }
 
   calculateMaxDate(): Date {
