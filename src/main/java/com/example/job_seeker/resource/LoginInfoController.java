@@ -1,10 +1,16 @@
 package com.example.job_seeker.resource;
 
 import com.example.job_seeker.DTO.ApiResponse;
+import com.example.job_seeker.DTO.PasswordDTO;
 import com.example.job_seeker.model.loginInfo;
 import com.example.job_seeker.repository.LoginInfoRepository;
+import com.example.job_seeker.service.ConsultantService;
 import com.example.job_seeker.service.EmailService;
+import com.mongodb.client.result.UpdateResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,5 +43,20 @@ public class LoginInfoController {
         Optional<loginInfo> consultant = loginInfoRepository.findOneByEmail(email);
 
         return consultant.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.ok(null));
+    }
+
+    @PutMapping("/api/v1/updateAuth/{email}")
+    public ResponseEntity<ApiResponse> updateAuth(@PathVariable String email, @RequestBody PasswordDTO dto) {
+        Query query = new Query(Criteria.where("email").is(email));
+        Update update = new Update().set("password", dto.getPassword());
+
+        UpdateResult result = ConsultantService.mongoTemplate.updateFirst(query, update, loginInfo.class);
+
+        if (result.getModifiedCount() > 0) {
+            ApiResponse response = new ApiResponse("Credentials updated successfully");
+            return ResponseEntity.ok(response);
+        } else {
+            return ResponseEntity.ok(null);
+        }
     }
 }
