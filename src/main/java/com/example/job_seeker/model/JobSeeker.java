@@ -13,9 +13,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "jobSeekers")
 
 public class JobSeeker {
-    @Id
-    private int id;
-    private String name;
     private String email;
-    private String CV;
+    private String message;
 }

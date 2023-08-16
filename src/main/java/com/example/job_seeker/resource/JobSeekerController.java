@@ -1,8 +1,10 @@
 package com.example.job_seeker.resource;
 
+import com.example.job_seeker.DTO.ApiResponse;
 import com.example.job_seeker.model.JobSeeker;
 import com.example.job_seeker.repository.JobSeekerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,13 +15,15 @@ public class JobSeekerController {
     @Autowired
     private JobSeekerRepository jobSeekerRepository;
 
-    @PostMapping("/api/v1/saveJobSeeker")
-    public String saveJobSeeker(@RequestBody JobSeeker jobSeeker) {
+    @PostMapping("/api/v1/sendMessage")
+    public ResponseEntity<ApiResponse> saveJobSeeker(@RequestBody JobSeeker jobSeeker) {
         jobSeekerRepository.save(jobSeeker);
-        return "Saved "+jobSeeker.getName()+"successfully";
+
+        ApiResponse response = new ApiResponse("Sent "+jobSeeker.getEmail()+" successfully");
+        return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/api/v1/getAllJobSeekers")
+    @GetMapping("/api/v1/loadJobSeekerRequests")
     public List<JobSeeker> getAllJobSeekers() {
         return jobSeekerRepository.findAll();
     }
@@ -33,6 +37,14 @@ public class JobSeekerController {
     public String deleteJobSeeker(@PathVariable int id) {
         jobSeekerRepository.deleteById(id);
         return "Deleted "+id+" successfully";
+    }
+
+    @DeleteMapping("/api/v1/deleteMessageRequest/{email}")
+    public ResponseEntity<ApiResponse> deleteJobSeekerByEmail(@PathVariable String email) {
+        jobSeekerRepository.deleteByEmail(email);
+
+        ApiResponse response = new ApiResponse("Deleted "+email+" successfully");
+        return ResponseEntity.ok(response);
     }
 
     @PutMapping("/api/v1/updateJobSeeker/{id}")
