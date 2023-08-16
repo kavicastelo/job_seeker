@@ -33,6 +33,7 @@ import { AppointmentsComponent } from './components/dashboard/appointments/appoi
 import { UnavailableDatesComponent } from './components/dashboard/unavailable-dates/unavailable-dates.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatMomentDateModule} from "@angular/material-moment-adapter";
+import { ApprovedAppointmentsComponent } from './components/dashboard/approved-appointments/approved-appointments.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {MatMomentDateModule} from "@angular/material-moment-adapter";
     LoginReceptionComponent,
     DashboardComponent,
     AppointmentsComponent,
-    UnavailableDatesComponent
+    UnavailableDatesComponent,
+    ApprovedAppointmentsComponent
   ],
   imports: [
     BrowserModule,

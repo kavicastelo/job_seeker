@@ -30,4 +30,12 @@ export class AppointmentService {
   public getAllAppointments(): Observable<any> {
     return this.http.get(this.baseUrl + "getAllAppointments");
   }
+
+  public updateConsultant(id: any, updatedAppointment: any): Observable<any> {
+    return this.http.put(this.baseUrl + "updateAppointment/" + id, updatedAppointment);
+  }
+
+  public deleteAppointment(id: any): Observable<any> {
+    return this.http.delete(this.baseUrl + "deleteAppointment/" + id);
+  }
 }

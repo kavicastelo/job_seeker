@@ -12,6 +12,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class ReceptionConsultantListComponent implements OnInit{
 
   consultants:any;
+  loading:boolean = false;
 
   constructor(private http: HttpClient, private consultantService: ConsultantService, private snackBar: MatSnackBar) {
   }
@@ -30,12 +31,15 @@ export class ReceptionConsultantListComponent implements OnInit{
 
   deleteUser(email: any) {
     if(confirm("Are you sure?")){
+      this.loading = true;
       this.consultantService.deleteConsultantByEmail(email).subscribe(response=>{
         this.openSnackBar('Customer Deleted!','OK');
         this.loadConsultants();
+        this.loading = false;
       },error=>{
         this.openSnackBar('Somethings Wrong! try again','OK');
         console.log(error);
+        this.loading = false;
       })
     }
   }

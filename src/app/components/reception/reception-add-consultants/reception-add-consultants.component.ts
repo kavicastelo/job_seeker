@@ -11,6 +11,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class ReceptionAddConsultantsComponent {
 
+  loading:boolean = false;
+
   addForm = new FormGroup({
     email: new FormControl(null,[
       Validators.required,
@@ -78,12 +80,14 @@ export class ReceptionAddConsultantsComponent {
   }
 
   createConsultant(email: string | null | undefined) {
+    this.loading = true;
     this.consultantService.createConsultant({
       email: email,
       password: this.addForm.get('password')?.value
     }).subscribe(() => {
       this.updateConsultant(email);
     }, error => {
+      this.loading = false;
       console.log(error);
     });
   }
@@ -94,6 +98,7 @@ export class ReceptionAddConsultantsComponent {
     }).subscribe(() => {
       this.deleteConsultant(email);
     }, error => {
+      this.loading = false;
       console.log(error);
     });
   }
@@ -101,8 +106,10 @@ export class ReceptionAddConsultantsComponent {
   deleteConsultant(email: string | null | undefined) {
     this.consultantService.deleteConsultantByEmail(email).subscribe(() => {
       this.addForm.reset();
-      this.openSnackBar('Consultant created, updated, and deleted successfully', 'OK');
+      this.loading = false;
+      this.openSnackBar('Consultant created successfully', 'OK');
     }, error => {
+      this.loading = false;
       this.snackBar.open('Error on deleting process', 'OK');
     });
   }

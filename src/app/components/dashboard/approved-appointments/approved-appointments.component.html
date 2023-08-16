@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Job Role</th>
+    <th>Email</th>
+    <th>Appointment Date</th>
+    <th>Approval</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let a of matchingAppointments">
+    <td>{{a.id}}</td>
+    <td>{{a.name}}</td>
+    <td>{{a.jobRole}}</td>
+    <td title="Send an email"><a href="mailto:{{a.email}}">{{a.email}}</a></td>
+    <td>{{a.date.split('T',1)}}</td>
+    <td><button (click)="deleteAppointment(a.id)">Delete</button></td>
+  </tr>
+  </tbody>
+</table>

@@ -1,4 +1,13 @@
 <table class="table table-hover">
+  <div *ngIf="loading" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+    <div class="d-flex align-items-center justify-content-center w-100 h-100">
+      <div class="d-flex flex-column align-items-center justify-content-center"
+           style="width: 80%; padding: 30px; border: 1px solid #13E8E9; border-radius: 25px; background-color: rgba(255,255,255,.5)">
+        <img src="./assets/images/asset/small_loading.gif" alt="loading" title="Loading" width="60" height="60">
+        <div class="loading-count" style="color: black">Approving...</div>
+      </div>
+    </div>
+  </div>
   <thead>
   <tr>
     <th>ID</th>
@@ -16,7 +25,7 @@
     <td>{{a.jobRole}}</td>
     <td title="Send an email"><a href="mailto:{{a.email}}">{{a.email}}</a></td>
     <td>{{a.date.split('T',1)}}</td>
-    <td><button>approve</button></td>
+    <td><button (click)="updateAppointment(a.id)">approve</button></td>
   </tr>
   </tbody>
 </table>

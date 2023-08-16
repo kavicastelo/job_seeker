@@ -1,26 +1,25 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {AppointmentService} from "../../../services/appointment.service";
 import {ConsultantService} from "../../../services/consultant.service";
 import {AuthService} from "../../../services/auth.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
-  selector: 'app-appointments',
-  templateUrl: './appointments.component.html',
-  styleUrls: ['./appointments.component.scss']
+  selector: 'app-approved-appointments',
+  templateUrl: './approved-appointments.component.html',
+  styleUrls: ['./approved-appointments.component.scss']
 })
-export class AppointmentsComponent implements OnInit{
+export class ApprovedAppointmentsComponent {
+
   countries: any;
   categories: any;
   matchingAppointments: any;
 
-  loading:boolean = false;
-
   constructor(
-    private appointmentService:AppointmentService,
-    private consultantService:ConsultantService,
-    private cookieService:AuthService,
-    private snackBar:MatSnackBar) {
+    private appointmentService: AppointmentService,
+    private consultantService: ConsultantService,
+    private cookieService: AuthService,
+    private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -39,7 +38,7 @@ export class AppointmentsComponent implements OnInit{
             appointment.country === consultantData.country &&
             appointment.category === consultantData.jobCategory &&
             appointment.consultant === consultantData.name &&
-            appointment.approved === false
+            appointment.approved
           );
 
           // console.log(this.matchingAppointments);
@@ -48,20 +47,17 @@ export class AppointmentsComponent implements OnInit{
     );
   }
 
-  updateAppointment(id: any) {
-    this.loading = true;
-    this.appointmentService.updateConsultant(id, {approved: true}).subscribe((resp) => {
-      this.loading = false;
-      this.snackBar.open(resp.message, 'OK', {duration: 2000});
-      this.loadAppointments();
-    }, (err) => {
-      this.loading = false;
-      this.snackBar.open('Something went wrong', 'OK', {duration: 2000});
-    });
+  deleteAppointment(id: any) {
+    if (confirm('Are you sure you want to delete this appointment?')){
+      this.appointmentService.deleteAppointment(id).subscribe((resp) => {
+        this.snackBar.open(resp.message, 'OK', {duration: 2000});
+        this.loadAppointments();
+      });
+    }
   }
 
   openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action,{duration:2000});
+    this.snackBar.open(message, action, {duration: 2000});
   }
 
 }

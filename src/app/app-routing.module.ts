@@ -23,6 +23,9 @@ import {LoginReceptionComponent} from "./components/login-reception/login-recept
 import {ReceptionGuard} from "./guards/reception.guard";
 import {AppointmentsComponent} from "./components/dashboard/appointments/appointments.component";
 import {UnavailableDatesComponent} from "./components/dashboard/unavailable-dates/unavailable-dates.component";
+import {
+  ApprovedAppointmentsComponent
+} from "./components/dashboard/approved-appointments/approved-appointments.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -42,6 +45,7 @@ const routes: Routes = [
       {path: '', redirectTo: '/dashboard/appointments', pathMatch: 'full'},
       {path: 'appointments', component: AppointmentsComponent},
       {path: 'unavailable-dates', component: UnavailableDatesComponent},
+      {path: 'approved-appointments', component: ApprovedAppointmentsComponent},
     ]},
 ];
 
