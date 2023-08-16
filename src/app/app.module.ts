@@ -37,6 +37,7 @@ import { ApprovedAppointmentsComponent } from './components/dashboard/approved-a
 import { HelpSupportComponent } from './components/help-support/help-support.component';
 import { ComingSoonComponent } from './components/coming-soon/coming-soon.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SettingsComponent } from './components/dashboard/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ApprovedAppointmentsComponent,
     HelpSupportComponent,
     ComingSoonComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

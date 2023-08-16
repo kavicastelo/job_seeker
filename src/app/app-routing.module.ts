@@ -29,6 +29,7 @@ import {
 import {HelpSupportComponent} from "./components/help-support/help-support.component";
 import {ComingSoonComponent} from "./components/coming-soon/coming-soon.component";
 import {NotFoundComponent} from "./components/not-found/not-found.component";
+import {SettingsComponent} from "./components/dashboard/settings/settings.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -41,6 +42,7 @@ const routes: Routes = [
       {path: 'add-new', component: ReceptionAddConsultantsComponent},
       {path: 'consultant-list', component: ReceptionConsultantListComponent},
       {path: 'requests', component: ReceptionJobSeekerReqComponent},
+      {path: 'settings', component: SettingsComponent},
     ]},
   {path: 'login', component: LoginConsultantComponent},
   {path: 'reception-login', component: LoginReceptionComponent},
@@ -49,6 +51,7 @@ const routes: Routes = [
       {path: 'appointments', component: AppointmentsComponent},
       {path: 'unavailable-dates', component: UnavailableDatesComponent},
       {path: 'approved-appointments', component: ApprovedAppointmentsComponent},
+      {path: 'settings', component: SettingsComponent},
     ]},
   {path: 'help-support', component: HelpSupportComponent},
   {path: 'coming-soon', component: ComingSoonComponent},

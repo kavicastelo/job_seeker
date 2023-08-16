@@ -60,4 +60,8 @@ export class ConsultantService {
     return this.http.put(this.baseUrl + "setUnavailableDates/" + email, unavailableDates, options);
   }
 
+  public updateAuth(email: any, password: any, options?: any): Observable<any> {
+    return this.http.put(this.baseUrl + "updateAuth/" + email, password, options);
+  }
+
 }

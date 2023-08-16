@@ -1,0 +1,40 @@
+<h1 class="title-1">Update Credentials</h1>
+<form class="add-form" [formGroup]="addForm" (ngSubmit)="submit()">
+
+  <div class="row">
+    <div *ngIf="loading" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+      <div class="d-flex align-items-center justify-content-center w-100 h-100">
+        <div class="d-flex flex-column align-items-center justify-content-center"
+             style="width: 80%; padding: 30px; border: 1px solid #13E8E9; border-radius: 25px; background-color: rgba(255,255,255,.5)">
+          <img src="./assets/images/asset/small_loading.gif" alt="loading" title="Loading" width="60" height="60">
+          <div class="loading-count" style="color: black">Updating...</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <mat-form-field class="contact-form-full-width" appearance="outline" color="accent">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com" autocomplete="on">
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-6">
+      <mat-form-field class="contact-form-full-width" appearance="outline" color="accent">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" placeholder="Ex. Sdkjfs$567f">
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-6">
+      <mat-form-field class="contact-form-full-width" appearance="outline" color="accent">
+        <mat-label>Retype Password</mat-label>
+        <input matInput formControlName="repeatPassword" placeholder="Ex. Sdkjfs$567f" autocomplete="on">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <button type="reset" class="button-4">Cancel</button>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <button class="button-3">Update Credentials</button>
+    </div>
+  </div>
+
+</form>
