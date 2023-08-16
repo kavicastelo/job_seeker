@@ -26,6 +26,9 @@ import {UnavailableDatesComponent} from "./components/dashboard/unavailable-date
 import {
   ApprovedAppointmentsComponent
 } from "./components/dashboard/approved-appointments/approved-appointments.component";
+import {HelpSupportComponent} from "./components/help-support/help-support.component";
+import {ComingSoonComponent} from "./components/coming-soon/coming-soon.component";
+import {NotFoundComponent} from "./components/not-found/not-found.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -47,6 +50,9 @@ const routes: Routes = [
       {path: 'unavailable-dates', component: UnavailableDatesComponent},
       {path: 'approved-appointments', component: ApprovedAppointmentsComponent},
     ]},
+  {path: 'help-support', component: HelpSupportComponent},
+  {path: 'coming-soon', component: ComingSoonComponent},
+  {path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({

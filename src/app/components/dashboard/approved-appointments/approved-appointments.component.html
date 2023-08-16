@@ -6,7 +6,7 @@
     <th>Job Role</th>
     <th>Email</th>
     <th>Appointment Date</th>
-    <th>Approval</th>
+    <th>Action</th>
   </tr>
   </thead>
   <tbody>
@@ -16,7 +16,7 @@
     <td>{{a.jobRole}}</td>
     <td title="Send an email"><a href="mailto:{{a.email}}">{{a.email}}</a></td>
     <td>{{a.date.split('T',1)}}</td>
-    <td><button (click)="deleteAppointment(a.id)">Delete</button></td>
+    <td><button mat-raised-button color="warn" (click)="deleteAppointment(a.id)">Delete</button></td>
   </tr>
   </tbody>
 </table>

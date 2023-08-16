@@ -34,6 +34,9 @@ import { UnavailableDatesComponent } from './components/dashboard/unavailable-da
 import {MatCardModule} from "@angular/material/card";
 import {MatMomentDateModule} from "@angular/material-moment-adapter";
 import { ApprovedAppointmentsComponent } from './components/dashboard/approved-appointments/approved-appointments.component';
+import { HelpSupportComponent } from './components/help-support/help-support.component';
+import { ComingSoonComponent } from './components/coming-soon/coming-soon.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { ApprovedAppointmentsComponent } from './components/dashboard/approved-a
     DashboardComponent,
     AppointmentsComponent,
     UnavailableDatesComponent,
-    ApprovedAppointmentsComponent
+    ApprovedAppointmentsComponent,
+    HelpSupportComponent,
+    ComingSoonComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

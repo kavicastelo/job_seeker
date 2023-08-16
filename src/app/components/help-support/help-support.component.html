@@ -1,0 +1,33 @@
+<div class="container" style="padding: 15px 0">
+  <h1 class="title-1">Get Support to Make an Appointment</h1>
+  <p class="p-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aspernatur at consectetur, cum, dolor
+    doloribus dolorum earum esse facere, fugiat fugit illum ipsam molestiae nam natus numquam pariatur quae quaerat
+    repudiandae sed! Asperiores aut cum est quo totam voluptatem. Aliquam corporis dolore eum possimus quaerat quos rem
+    ullam vero voluptatem!</p>
+  <form class="example-form" [formGroup]="submitForm" (ngSubmit)="sendMessage()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+      <mat-error *ngIf="submitForm.hasError('email') && !submitForm.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="submitForm.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Message</mat-label>
+      <textarea matInput formControlName="message" style="height: 200px"
+                placeholder="I'm Kavindu Kokila and I'm professional at fullstack web development. I'm from Sri Lanka..."></textarea>
+      <mat-error *ngIf="!submitForm.hasError('required')">
+        Please describe your self (50-500 characters)
+      </mat-error>
+      <mat-error *ngIf="submitForm.hasError('required')">
+        Message is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" style="width: 100%">Send Message</button>
+    <p>Don't need a support? <span routerLink="/home">Make an Appointment</span></p>
+  </form>
+</div>
+
