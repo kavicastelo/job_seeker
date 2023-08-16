@@ -4,6 +4,7 @@ import com.example.job_seeker.DTO.ApiResponse;
 import com.example.job_seeker.DTO.UnavailableDatesDTO;
 import com.example.job_seeker.model.Consultant;
 import com.example.job_seeker.service.ConsultantService;
+import com.example.job_seeker.service.EmailService;
 import com.mongodb.client.result.UpdateResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,9 @@ public class ConsultantController {
 
     @Autowired
     private ConsultantRepository consultantRepository;
+
+    @Autowired
+    private EmailService emailService;
 
     @PostMapping("/api/v1/saveConsultant")
     public ResponseEntity<ApiResponse> saveConsultant(@RequestBody Consultant consultant) {
@@ -50,6 +54,11 @@ public class ConsultantController {
     @DeleteMapping("/api/v1/deleteConsultantByEmail/{email}")
     public ResponseEntity<ApiResponse> deleteConsultantByEmail(@PathVariable String email) {
         consultantRepository.deleteByEmail(email);
+
+        String to = email.toString();
+        String subject = "Account Blocked";
+        String text = "Your account has been blocked. Please contact support@jobseeker.com";
+        emailService.sendSimpleEmail(to, subject, text);
 
         ApiResponse response = new ApiResponse("Delete successfully");
         return ResponseEntity.ok(response);
