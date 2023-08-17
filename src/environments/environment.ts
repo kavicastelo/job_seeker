@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // baseUrl:"https://flexiart-backend.onrender.com/api/v1/" //production port 3269
-  baseUrl:"http://localhost:3269/api/v1/"  //localhost port 3214
+  baseUrl:"https://jobseeker-ftq4.onrender.com/api/v1/" //production port 3269
+  // baseUrl:"http://localhost:3269/api/v1/"  //localhost port 3214
 };
 
 /*
