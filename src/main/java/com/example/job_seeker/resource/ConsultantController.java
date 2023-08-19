@@ -45,10 +45,13 @@ public class ConsultantController {
         return consultantRepository.findById(id);
     }
 
-    @DeleteMapping("/api/v1/deleteConsultant/{id}")
-    public String deleteConsultant(@PathVariable int id) {
-        consultantRepository.deleteById(id);
-        return "Deleted " + id + " successfully";
+//    delete consultant without email sending
+    @DeleteMapping("/api/v1/deleteConsultant/{email}")
+    public ResponseEntity<ApiResponse> deleteConsultant(@PathVariable String email) {
+        consultantRepository.deleteByEmail(email);
+
+        ApiResponse response = new ApiResponse("Delete successfully");
+        return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/api/v1/deleteConsultantByEmail/{email}")
