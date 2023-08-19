@@ -38,6 +38,7 @@ import { HelpSupportComponent } from './components/help-support/help-support.com
 import { ComingSoonComponent } from './components/coming-soon/coming-soon.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SettingsComponent } from './components/dashboard/settings/settings.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -61,27 +62,28 @@ import { SettingsComponent } from './components/dashboard/settings/settings.comp
     NotFoundComponent,
     SettingsComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSidenavModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatExpansionModule,
-    HttpClientModule,
-    MatSelectCountryModule.forRoot('en'),
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSnackBarModule,
-    MatCardModule,
-    FormsModule,
-    MatMomentDateModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatIconModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatExpansionModule,
+        HttpClientModule,
+        MatSelectCountryModule.forRoot('en'),
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSnackBarModule,
+        MatCardModule,
+        FormsModule,
+        MatMomentDateModule,
+        MatProgressBarModule
+    ],
   providers: [
     DatePipe,
   ],

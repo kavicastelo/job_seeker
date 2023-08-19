@@ -1,4 +1,10 @@
 <div class="main-div d-flex align-items-center justify-content-center">
+  <div class="progress-bar" *ngIf="loading">
+    <img src="./assets/images/asset/small_loading.gif" alt="loading" width="60" height="60">
+    <p class="p-1">Checking.. Secure the network..</p>
+    <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+    <p class="p-1">Please wait to configure the backend</p>
+  </div>
   <div class="appointment-div">
     <form [formGroup]="appointmentForm" (ngSubmit)="submit()">
       <div *ngIf="appointmentForm.get('country')?.invalid && appointmentForm.get('country')?.touched" class="error-message">

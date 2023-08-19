@@ -30,6 +30,8 @@ export class HomeComponent implements OnInit{
   selectedConsultant: any; // Variable to store the selected consultant
   unavailableDates: string[] = [];
 
+  loading: boolean = false;
+
   generateId = Math.random().toString(36).substring(2);
 
   public appointmentForm: FormGroup;
@@ -85,8 +87,10 @@ export class HomeComponent implements OnInit{
   }
 
   loadConsultants() {
+    this.loading = true;
     this.consultantService.getAllConsultants().subscribe((data: any) => {
       this.consultants = data;
+      this.loading = false;
     })
   }
 

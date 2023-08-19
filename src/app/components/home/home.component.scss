@@ -48,5 +48,27 @@
     }
 
   }
+
+  .progress-bar{
+    position: absolute;
+    top: 20%;
+    bottom: 20%;
+    left: 10vw;
+    right: 10vw;
+    height: 60%;
+    z-index: 1;
+    min-width: 300px;
+    background-color: rgba(0,0,0,.5);
+    padding: 0 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+
+    .p-1{
+      color: white;
+    }
+  }
 }
 
