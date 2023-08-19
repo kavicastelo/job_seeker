@@ -104,7 +104,7 @@ export class ReceptionAddConsultantsComponent {
   }
 
   deleteConsultant(email: string | null | undefined) {
-    this.consultantService.deleteConsultantByEmail(email).subscribe(() => {
+    this.consultantService.deleteConsultant(email).subscribe(() => {
       this.addForm.reset();
       this.loading = false;
       this.openSnackBar('Consultant created successfully', 'OK');
