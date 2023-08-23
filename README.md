@@ -31,11 +31,11 @@ To get started, follow the steps below:
 
 ## Usage
 
-The application serves as a platform for job seekers to connect with consultants. Users can filter job listings based on country, job category, consultant name, and job role. Follow these steps to make an appointment:
+The application serves as a platform for job seekers to connect with consultants. Users can filter job listings based on country, job category, consultantTests name, and job role. Follow these steps to make an appointmentTests:
 
 1. Choose a country (e.g., American Samoa).
 2. Select a job category (e.g., Art & Design Related).
-3. Choose a consultant (e.g., Kavi Castelo).
+3. Choose a consultantTests (e.g., Kavi Castelo).
 4. Select a job role under the chosen category.
 
 ## Login Credentials
@@ -55,16 +55,16 @@ You can use consultants credentials too
 - Password: 123456
 
 ### Consultant Apply:
-`nav bar > become a consultant` or `top bar > become a consultant > apply now`
+`nav bar > become a consultantTests` or `top bar > become a consultantTests > apply now`
 
 ## Functionality
 
 - CRUD operations for job listings.
-- Reception and consultant login with shared credentials.
+- Reception and consultantTests login with shared credentials.
 - Filter function on the homepage for searching job listings.
 - Authenticated access for secure operations.
 
-Described only main function. Many more functions to have consultant and reception panels.
+Described only main function. Many more functions to have consultantTests and reception panels.
 
 ## Deployment
 
@@ -77,7 +77,7 @@ Note: Backend loading time might be up to 30 seconds due to the free hosting pla
 
 - Authentication and authorization mechanisms are integrated.
 - CORS is configured to allow frontend access to backend APIs.
-- Reception and consultant login credentials are shared for educational purposes.
+- Reception and consultantTests login credentials are shared for educational purposes.
 - Passwords are not encrypted for simplicity and educational purposes.
 
 ## Local Setup

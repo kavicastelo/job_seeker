@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 
 
 @Configuration
-public class MongoConfig {
+public class MongoConfigTests {
 
     @Bean
     public MongoTemplate mongoTemplate(MongoDatabaseFactory mongoDbFactory,
