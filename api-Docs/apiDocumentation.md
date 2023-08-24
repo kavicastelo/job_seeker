@@ -162,7 +162,7 @@ Request Body:
 "password": "password123"
 }
 ```
-## Get Consultant Login Info by Email
+### Get Consultant Login Info by Email
 Endpoint: `GET /api/v1/getConsultantByEmail/{email}`
 
 Retrieve login information of a consultant by email.
