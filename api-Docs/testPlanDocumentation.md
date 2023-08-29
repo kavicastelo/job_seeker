@@ -1,6 +1,6 @@
 # Test Plan
 ## Introduction
-The test plan designed to describe the scope, approach, resources and all of the testing activities of project Job Seeker Online Appointment web application.
+The test plan designed to describe the scope, approach, resources and all the testing activities of project Job Seeker Online Appointment web application.
 
 ## 1. Test Strategy
 ### 1.1 Scope
@@ -61,7 +61,7 @@ After completing these resources, starts the testing process
 - **Test case ID** - Function_1
 - **Test priority (low/medium/good)** - good
 - **Module name** – request help  
-- **Test title** - can be send request message without errors
+- **Test title** - can be sent request message without errors
 - **Description** - test request string message and store it successfully in database
 - **Pre-condition** - no 
 
@@ -76,7 +76,7 @@ After completing these resources, starts the testing process
 - **Test case ID** - Function_2
 - **Test priority (low/medium/good)** - good
 - **Module name** – request appointment
-- **Test title** - can be send appointment request without errors
+- **Test title** - can be sent appointment request without errors
 - **Description** - test request appointment filtering the consultant and store appointment data in to database
 - **Pre-condition** - country list, job category list, available consultants, available job roles according to consultant, consultant available dates
 
@@ -95,7 +95,7 @@ After completing these resources, starts the testing process
 - **Test case ID** - Function_3
 - **Test priority (low/medium/good)** - good
 - **Module name** – apply consultant
-- **Test title** - can be apply consultant job without errors
+- **Test title** - can be applied consultant job without errors
 - **Description** - test apply consultant job successfully and store applicant data in database
 - **Pre-condition** - no
 
@@ -139,12 +139,12 @@ After completing these resources, starts the testing process
 - **Description** - test consultant applicant data view correctly
 - **Pre-condition** - name, email, phone, address, country, category, job roles, portfolio
 
-| Step | Test steps                             | Test data                                                                                  | Expected results                                    | Actual result             | Status |
-|------|----------------------------------------|--------------------------------------------------------------------------------------------|-----------------------------------------------------|---------------------------|--------|
-| 1    | Launch application                     | name<br/>email<br/>phone<br/>address<br/>country<br/>category<br/>job roles<br/>portfolio  | get applicant data from database and show correctly | `[load data to a table]`  | pass   |
-| 2    | Click `Become a consultant` in top bar |||||
-| 3    | Click `Sign in`                        |||||
-| 4    | Login successfully                     |||||
+| Step | Test steps                                 | Test data                                                                                  | Expected results                                    | Actual result             | Status |
+|------|--------------------------------------------|--------------------------------------------------------------------------------------------|-----------------------------------------------------|---------------------------|--------|
+| 1    | Launch application                         | name<br/>email<br/>phone<br/>address<br/>country<br/>category<br/>job roles<br/>portfolio  | get applicant data from database and show correctly | `[load data to a table]`  | pass   |
+| 2    | Click `Reception` in nav bar(for dev mode) |||||
+| 3    | Click `Authorize`                          |||||
+| 4    | Login successfully                         |||||
 
 - **Test case ID** - Function_6
 - **Test priority (low/medium/good)** - good
@@ -153,32 +153,32 @@ After completing these resources, starts the testing process
 - **Description** - test current consultants data view correctly
 - **Pre-condition** - name, email, phone, address
 
-| Step | Test steps                             | Test data                             | Expected results                                      | Actual result             | Status |
-|------|----------------------------------------|---------------------------------------|-------------------------------------------------------|---------------------------|--------|
-| 1    | Launch application                     | name<br/>email<br/>phone<br/>address  | get consultants data from database and show correctly | `[load data to a table]`  | pass   |
-| 2    | Click `Become a consultant` in top bar |||||
-| 3    | Click `Sign in`                        |||||
-| 4    | Login successfully                     |||||
-| 4    | Click `View Consultant List`           |||||
+| Step | Test steps                                  | Test data                             | Expected results                                      | Actual result             | Status |
+|------|---------------------------------------------|---------------------------------------|-------------------------------------------------------|---------------------------|--------|
+| 1    | Launch application                          | name<br/>email<br/>phone<br/>address  | get consultants data from database and show correctly | `[load data to a table]`  | pass   |
+| 2    | Click `Reception` in nav bar(for dev mode)  |||||
+| 3    | Click `Authorize`                           |||||
+| 4    | Login successfully                          |||||
+| 4    | Click `View Consultant List`                |||||
 
 - **Test case ID** - Function_7
 - **Test priority (low/medium/good)** - good
 - **Module name** – add consultant
-- **Test title** - can be add new consultants to the system
+- **Test title** - can be added new consultants to the system
 - **Description** - test add new consultant using email and new passwords then send automatic email to registered email with credentials
 - **Pre-condition** - no
 
-| Step | Test steps                             | Test data          | Expected results                                                                    | Actual result                                                  | Status |
-|------|----------------------------------------|--------------------|-------------------------------------------------------------------------------------|----------------------------------------------------------------|--------|
-| 1    | Launch application                     | email<br/>password | check email is valid and add login data to the database then sent a automatic email | consultant added successfully and send email to the consultant | pass   |
-| 2    | Click `Become a consultant` in top bar |||||
-| 3    | Click `Sign in`                        |||||
-| 4    | Login successfully                     |||||
-| 5    | Click `Add Consultants`                |||||
-| 6    | Add consultant's email                 |||||
-| 7    | Add password                           |||||
-| 8    | Re type password                       |||||
-| 9    | Click `Add Consultant`                 |||||
+| Step | Test steps                                  | Test data          | Expected results                                                                    | Actual result                                                  | Status |
+|------|---------------------------------------------|--------------------|-------------------------------------------------------------------------------------|----------------------------------------------------------------|--------|
+| 1    | Launch application                          | email<br/>password | check email is valid and add login data to the database then sent a automatic email | consultant added successfully and send email to the consultant | pass   |
+| 2    | Click `Reception` in nav bar(for dev mode)  |||||
+| 3    | Click `Authorize`                           |||||
+| 4    | Login successfully                          |||||
+| 5    | Click `Add Consultants`                     |||||
+| 6    | Add consultant's email                      |||||
+| 7    | Add password                                |||||
+| 8    | Re type password                            |||||
+| 9    | Click `Add Consultant`                      |||||
 
 - **Test case ID** - Function_8
 - **Test priority (low/medium/good)** - good
@@ -190,8 +190,8 @@ After completing these resources, starts the testing process
 | Step | Test steps                                      | Test data          | Expected results                                                       | Actual result                                                           | Status |
 |------|-------------------------------------------------|--------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|--------|
 | 1    | Launch application                              | email<br/>password | check account is not [null] and set account verified status to [false] | [consultant email] banned successfully and send email to the consultant | pass   |
-| 2    | Click `Become a consultant` in top bar          |||||
-| 3    | Click `Sign in`                                 |||||
+| 2    | Click `Reception` in nav bar(for dev mode)      |||||
+| 3    | Click `Authorize`                               |||||
 | 4    | Login successfully                              |||||
 | 5    | Click `View Consultant List`                    |||||
 | 6    | Click `Ban` button in front of the account data |||||
@@ -200,18 +200,135 @@ After completing these resources, starts the testing process
 - **Test case ID** - Function_9
 - **Test priority (low/medium/good)** - good
 - **Module name** – accept request help
-- **Test title** - can be accept help request from job seekers
+- **Test title** - can be accepted help request from jobseekers
 - **Description** - test help requests are loading from the database and can remove from database
 - **Pre-condition** - [need to visible in `job seeker requests`]
 
 | Step | Test steps                                          | Test data | Expected results                                                  | Actual result                                                                                      | Status |
 |------|-----------------------------------------------------|-----------|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|--------|
 | 1    | Launch application                                  | email     | check send emails without errors and remove requests successfully | device email composer open successfully with seeker email address<br/>message removal successfully | pass   |
-| 2    | Click `Become a consultant` in top bar              |||||
-| 3    | Click `Sign in`                                     |||||
+| 2    | Click `Reception` in nav bar(for dev mode)          |||||
+| 3    | Click `Authorize`                                   |||||
 | 4    | Login successfully                                  |||||
 | 5    | Click `Job Seeker Requests`                         |||||
 | 6    | Click on seeker's email                             |||||
 | 7    | Send custom message for him                         |||||
 | 8    | After end of the conversation click `remove` button |||||
 
+- **Test case ID** - Function_10
+- **Test priority (low/medium/good)** - good
+- **Module name** – view appointment requests
+- **Test title** - can be view appointment requests' information
+- **Description** - test appointment request's data view correctly
+- **Pre-condition** - ID, name, email, job roles, date
+
+| Step | Test steps                             | Test data                                   | Expected results                                                  | Actual result             | Status |
+|------|----------------------------------------|---------------------------------------------|-------------------------------------------------------------------|---------------------------|--------|
+| 1    | Launch application                     | ID<br/>name<br/>email<br/>job role<br/>date | get appointment requests' data from database and show correctly   | `[load data to a table]`  | pass   |
+| 2    | Click `Become a consultant` in top bar |||||
+| 3    | Click `Sign in`                        |||||
+| 4    | Login successfully                     |||||
+
+- **Test case ID** - Function_11
+- **Test priority (low/medium/good)** - good
+- **Module name** – approve appointment
+- **Test title** - can be approved appointment by consultant
+- **Description** - test appointment approve and send automatic email to job seeker
+- **Pre-condition** - ID
+
+| Step | Test steps                              | Test data | Expected results                                                                         | Actual result                                                     | Status |
+|------|-----------------------------------------|-----------|------------------------------------------------------------------------------------------|-------------------------------------------------------------------|--------|
+| 1    | Launch application                      | ID        | remove appointment from the requested list and set approved status to [true] in database | 37hg47j34d approved successfully and remove appoint from the list | pass   |
+| 2    | Click `Become a consultant` in top bar  |||||
+| 3    | Click `Sign in`                         |||||
+| 4    | Login successfully                      |||||
+| 5    | Click `approve` in front of the request |||||
+
+- **Test case ID** - Function_12
+- **Test priority (low/medium/good)** - good
+- **Module name** – view approved appointments
+- **Test title** - can be view approved appointments by consultant
+- **Description** - test approved appointments' data load correctly
+- **Pre-condition** - ID, name, email, job roles, date
+
+| Step | Test steps                             | Test data                                    | Expected results                                                         | Actual result            | Status |
+|------|----------------------------------------|----------------------------------------------|--------------------------------------------------------------------------|--------------------------|--------|
+| 1    | Launch application                     | ID<br/>name<br/>email<br/>job role<br/>date  | load `status:approved appointment` data from database and show correctly | `[load data to a table]` | pass   |
+| 2    | Click `Become a consultant` in top bar |||||
+| 3    | Click `Sign in`                        |||||
+| 4    | Login successfully                     |||||
+| 5    | Click `Approved List`                  |||||
+
+- **Test case ID** - Function_13
+- **Test priority (low/medium/good)** - good
+- **Module name** – set unavailable dates
+- **Test title** - can be set unavailable dates
+- **Description** - test set list of unavailable dates and add them to calendar
+- **Pre-condition** - no
+
+| Step | Test steps                             | Test data | Expected results                        | Actual result           | Status |
+|------|----------------------------------------|-----------|-----------------------------------------|-------------------------|--------|
+| 1    | Launch application                     | dates     | hide unavailable dates from calenders   | Unavailable dates added | pass   |
+| 2    | Click `Become a consultant` in top bar |||||
+| 3    | Click `Sign in`                        |||||
+| 4    | Login successfully                     |||||
+| 5    | Click `Set Unavailable Dates`          |||||
+| 5    | Choose unavailable dates and `Submit`  |||||
+
+- **Test case ID** - Function_14
+- **Test priority (low/medium/good)** - low
+- **Module name** – send custom emails
+- **Test title** - can be sent custom emails according to provided emails
+- **Description** - test send custom emails to clicking any email address from any dashboard
+- **Pre-condition** - email
+
+| Step | Test steps                                              | Test data | Expected results           | Actual result                                   | Status |
+|------|---------------------------------------------------------|-----------|----------------------------|-------------------------------------------------|--------|
+| 1    | ...                                                     | email     | open device email composer | Opened device email composer with clicked email | pass   |
+| 2    | Click any email address from any where in any dashboard |||||
+
+- **Test case ID** - Function_15
+- **Test priority (low/medium/good)** - good
+- **Module name** – Change credentials
+- **Test title** - can be update login information
+- **Description** - test update login credentials according to current email
+- **Pre-condition** - email
+
+| Step | Test steps                                       | Test data | Expected results                                 | Actual result        | Status |
+|------|--------------------------------------------------|-----------|--------------------------------------------------|----------------------|--------|
+| 1    | Launch application                               | email     | Check email is available and update new password | updated successfully | Pass   |
+| 2    | Click `Become a consultant` in top bar           |||||
+| 3    | Click `Sign in`                                  |||||
+| 4    | Login successfully                               |||||
+| 5    | Click `Settings`                                 |||||
+| 6    | Add new credentials                              |||||
+| 7    | Click `Update Credentials`                       |||||
+| and  ||||||
+| 1    | Launch application                               | email     | Check email is available and update new password | updated successfully | Pass   |
+| 2    | Click `Reception` in nav bar(for dev mode)       |||||
+| 3    | Click `Authorize`                                |||||
+| 4    | Login successfully                               |||||
+| 5    | Click `Settings`                                 |||||
+| 6    | Add new credentials                              |||||
+| 7    | Click `Update Credentials`                       |||||
+
+- **Test case ID** - Function_16
+- **Test priority (low/medium/good)** - medium
+- **Module name** – logout
+- **Test title** - can be logged uot from the system
+- **Description** - test logout the system with clearing the cookies
+- **Pre-condition** - no
+
+| Step | Test steps                                 | Test data | Expected results                         | Actual result                    | Status |
+|------|--------------------------------------------|-----------|------------------------------------------|----------------------------------|--------|
+| 1    | Launch application                         | cookies   | clear cookies and logout from the system | logged out and redirect to login | Pass   |
+| 2    | Click `Become a consultant` in top bar     |||||
+| 3    | Click `Sign in`                            |||||
+| 4    | Login successfully                         |||||
+| 5    | Click `Logout`                             |||||
+| and  ||||||
+| 1    | Launch application                         | cookies   | clear cookies and logout from the system | logged out and redirect to login | Pass   |
+| 2    | Click `Reception` in nav bar(for dev mode) |||||
+| 3    | Click `Authorize`                          |||||
+| 4    | Login successfully                         |||||
+| 5    | Click `Logout`                             |||||
